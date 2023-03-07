@@ -1,16 +1,15 @@
-import { Col, Row, Container, Card } from "react-bootstrap";
+import { Col, Row, Container, Card, Spinner } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useSanctum } from "react-sanctum";
 import LoginForm from "../../components/User/LoginForm";
+import ErrorList from "../../components/_Shared/ErrorList";
+import useResult from "../../hooks/useResult";
 
 export default function Login() {
   const { signIn } = useSanctum();
+  const { errors, getResult, isPending } = useResult();
 
-  const onFormSubmit = (username, pwd) => {
-    signIn(username, pwd)
-      .then(({ user }) => null)
-      .catch(({ response }) => null);
-  };
+  const onFormSubmit = (username, pwd) => getResult(signIn(username, pwd));
 
   return (
     <div>
@@ -19,6 +18,8 @@ export default function Login() {
           <Col md={8} lg={6} xs={12}>
             <div className="border border-3 border-secondary"></div>
             <Card className="shadow">
+              {isPending && <Spinner />}
+              <ErrorList response={errors} />
               <Card.Body>
                 <div className="mb-3 mt-md-4">
                   <h2 className="fw-bold mb-2 text-uppercase ">Turband</h2>

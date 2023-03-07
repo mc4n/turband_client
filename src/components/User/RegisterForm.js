@@ -6,11 +6,11 @@ export default function RegisterForm({ onFormSubmit }) {
       onSubmit={(e) => {
         e.preventDefault();
 
-        onFormSubmit(
-          e.target.ctUsername.value,
-          e.target.ctPassword.value,
-          e.target.ctConfirmPassword.value
-        );
+        onFormSubmit({
+          username: e.target.ctUsername.value,
+          password: e.target.ctPassword.value,
+          confirm_password: e.target.ctConfirmPassword.value,
+        });
       }}
     >
       <Form.Group className="mb-3" controlId="ctUsername">

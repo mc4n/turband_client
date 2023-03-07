@@ -7,7 +7,7 @@ export default function ErrorList({ response }) {
 
   return (
     response && (
-      <Alert variant={response.errors ? "danger" : "info"}>
+      <Alert variant="danger">
         {errs?.length > 1 ? (
           <ul>
             {errs.map((i, index) => (
