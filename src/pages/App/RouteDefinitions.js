@@ -3,12 +3,19 @@ import Layout from "./Layout";
 import Auth from "../Auth";
 import Register from "../Auth/Register";
 import Login from "../Auth/Login";
+import AuthRuled from "../Auth/AuthRuled";
 
 export default function RouteDefinitions() {
   return (
     <Routes>
       <Route path="/auth" element={<Layout />}>
-        <Route element={<Auth />}>
+        <Route
+          element={
+            <AuthRuled onlyGuest={true}>
+              <Auth />
+            </AuthRuled>
+          }
+        >
           <Route index element={<Navigate to="./login" />} />
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
@@ -17,7 +24,7 @@ export default function RouteDefinitions() {
 
       <Route path="/" element={<Layout />}>
         <Route index element={<Navigate to="posts" />} />
-        <Route path="/posts" element={"posts..."}>
+        <Route path="/posts" element={<AuthRuled>"posts..."</AuthRuled>}>
           <Route index element={"posts"} />
         </Route>
       </Route>

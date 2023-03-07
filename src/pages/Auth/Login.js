@@ -25,7 +25,7 @@ export default function Login() {
                   <h2 className="fw-bold mb-2 text-uppercase ">Turband</h2>
                   <p className=" mb-5">Kullanıcı girişi</p>
                   <div className="mb-3">
-                    <LoginForm responseInfo={{}} onFormSubmit={onFormSubmit} />
+                    <LoginForm onFormSubmit={onFormSubmit} />
 
                     <div className="mt-3">
                       <p className="mb-0  text-center">

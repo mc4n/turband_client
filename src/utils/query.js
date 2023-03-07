@@ -1,7 +1,10 @@
-export default function make(paramaters, end_point) {
-  const makeQueryURL = (ep) => `${this.context.baseURL}/${ep}`;
+export default function makeQuery(end_point, paramaters) {
+  if (!paramaters) return end_point;
 
-  let url_ = end_point ? makeQueryURL(end_point) : this.defaultURL;
+  let url_ = end_point;
+
+  if (!Array.isArray(paramaters)) paramaters = Object.entries(paramaters);
+
   if (paramaters && paramaters.length > 0)
     url_ +=
       "?" +

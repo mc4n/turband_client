@@ -3,18 +3,18 @@ import { Link } from "react-router-dom";
 import { useSanctum } from "react-sanctum";
 import RegisterForm from "../../components/User/RegisterForm";
 import ErrorList from "../../components/_Shared/ErrorList";
-import { API_URL } from "../../constants";
+import useApiService from "../../hooks/useApiService";
 import useResult from "../../hooks/useResult";
-import { postData } from "../../utils/axios";
-
-const promsSignUp = (_payload) => postData(API_URL + "/user", _payload);
 
 export default function Register() {
   const { setUser } = useSanctum();
   const { errors, getResult, isPending } = useResult();
+  const {
+    user: { signUp },
+  } = useApiService();
 
   const registerUser = (_payload) =>
-    getResult(promsSignUp(_payload), (data) => setUser(data.user));
+    getResult(signUp(_payload), (data) => setUser(data.user));
 
   return (
     <div>
