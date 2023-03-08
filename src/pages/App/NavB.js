@@ -17,7 +17,7 @@ export function NavB() {
           <Nav className="me-auto">
             {authenticated === true ? (
               <Navbar>
-                <Nav.Link as={Link} href="/" to="/posts/add">
+                <Nav.Link as={Link} href="/" to="/definitions/add">
                   Ekle
                 </Nav.Link>
 

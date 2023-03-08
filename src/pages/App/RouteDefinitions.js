@@ -4,6 +4,9 @@ import Auth from "../Auth";
 import Register from "../Auth/Register";
 import Login from "../Auth/Login";
 import AuthRuled from "../Auth/AuthRuled";
+import Definitions from "../Definitions";
+import List from "../Definitions/List";
+import New from "../Definitions/New";
 
 export default function RouteDefinitions() {
   return (
@@ -23,9 +26,17 @@ export default function RouteDefinitions() {
       </Route>
 
       <Route path="/" element={<Layout />}>
-        <Route index element={<Navigate to="posts" />} />
-        <Route path="/posts" element={<AuthRuled>"posts..."</AuthRuled>}>
-          <Route index element={"posts"} />
+        <Route index element={<Navigate to="definitions " />} />
+        <Route path="/definitions" element={<Definitions />}>
+          <Route index element={<List />} />
+          <Route
+            path="add"
+            element={
+              <AuthRuled>
+                <New />
+              </AuthRuled>
+            }
+          />
         </Route>
       </Route>
 
