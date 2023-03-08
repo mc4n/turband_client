@@ -5,6 +5,10 @@ export default function useResult() {
   const [data, setData] = useState();
 
   return {
+    reset: () => {
+      setErrors(null);
+      setData();
+    },
     data: errors === null && data,
     errors,
     isPending: errors === undefined,

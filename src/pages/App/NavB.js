@@ -8,7 +8,7 @@ export function NavB() {
 
   return (
     <Container>
-      <Navbar collapseOnSelect expand="lg" bg="success" variant="dark">
+      <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
         <Container>
           <Navbar.Brand as={Link} to="/">
             Turband
