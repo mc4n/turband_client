@@ -1,4 +1,4 @@
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import { Sanctum } from "react-sanctum";
 import { API_URL } from "../../constants";
 import RouteDefinitions from "./RouteDefinitions";
@@ -15,9 +15,9 @@ export default function App() {
         usernameKey: "username",
       }}
     >
-      <BrowserRouter>
+      <HashRouter>
         <RouteDefinitions />
-      </BrowserRouter>
+      </HashRouter>
     </Sanctum>
   );
 }

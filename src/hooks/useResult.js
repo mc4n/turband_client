@@ -26,13 +26,13 @@ export default function useResult() {
           setErrors(null);
         })
         .catch(({ response }) => {
-          if (response.status === 422) {
-            setErrors(response.data);
-            fail && fail(response.data);
-          } else {
+          // if (response.status === 422) {
+          setErrors(response.data);
+          fail && fail(response.data);
+          /*} else {
             setErrors(null);
             fail && fail(response);
-          }
+          }*/
         });
     },
   };
